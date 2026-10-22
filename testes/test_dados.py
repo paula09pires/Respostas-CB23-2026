@@ -30,6 +30,8 @@ class TestMediaMovelRegressao(unittest.TestCase):
         s = SerieTemporal.de_lista(np.arange(600, dtype=float))
         self.assertEqual(len(s.media_movel(30)), 571)
  
+
+
  
 if __name__ == "__main__":
     unittest.main()
