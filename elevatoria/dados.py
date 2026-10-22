@@ -31,15 +31,15 @@ from fornecido.cronometro import cronometrar
 #: aplicado com `LINHA.fullmatch(linha)`.
 LINHA: re.Pattern = re.compile(
     r"""
-    (?P<data>[0-9]{4}-[0-9]{2}-[0-9]{2})
-    []+
-    (?P<hora>[0-9]{4}-[0-9]{2}-[0-9]{2})
-    []+
-    (?P<nivel>INFO|WARN|ALARME)
-    []+
-    (?P<tag>[A-Z]{1,2}[0-9]{1,3})
-    []+
-    (?P<resto>\S.*)
+    (?P<data>[0-9]{4}-[0-9]{2}-[0-9]{2})    # data: AAAA-MM-DD
+    [ ]+                                    # um ou mais espaços
+    (?P<hora>[0-9]{2}:[0-9]{2}:[0-9]{2})    # hora: HH:MM:SS
+    [ ]+                                    # separador
+    (?P<nivel>INFO|WARN|ALARME)             # nível de severidade
+    [ ]+                                    # separador
+    (?P<tag>[A-Z]{1,2}[0-9]{1,3})           # tag: 1 ou 2 maiúsculas e 1 a 3 dígitos
+    [ ]+                                    # separador
+    (?P<resto>\S.*)                         # resto da linha, começando por não-espaço
     """,
     re.VERBOSE,
 )
